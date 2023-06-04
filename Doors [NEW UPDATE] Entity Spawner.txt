@@ -1,0 +1,2174 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Doors New Entity Spawner Gui", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local ETab = Window:MakeTab({
+	Name = "Entity Spawner",
+	Icon = "rbxassetid://11253398416",
+	PremiumOnly = false
+})
+
+local ESection = ETab:AddSection({
+	Name = "Entitys"
+})
+
+ETab:AddButton({
+	Name = "Rush",
+	Callback = function()
+      		local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
+
+---====== Create entity ======---
+
+local entity = Spawner.createEntity({
+    CustomName = "Rush",
+    Model = "https://github.com/RegularVynixu/Utilities/blob/main/Doors/Entity%20Spawner/Assets/Entities/Rush.rbxm?raw=true", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
+    Speed = 80,
+    MoveDelay = 7,
+    HeightOffset = 0,
+    CanKill = false,
+    KillRange = 30,
+    SpawnInFront = false,
+    ShatterLights = true,
+    FlickerLights = {
+        Enabled = true,
+        Duration = 1
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        Delay = 2
+    },
+    CamShake = {
+        Enabled = true,
+        Values = {1.5, 20, 0.1, 1},
+        Range = 100
+    },
+    ResistCrucifix = false,
+    BreakCrucifix = true,
+    DeathMessage = {},
+    IsCuriousLight = false
+})
+
+---====== Debug ======---
+
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned")
+end
+
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned")
+end
+
+entity.Debug.OnEntityStartMoving = function()
+    print("Entity started moving")
+end
+
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity finished rebound")
+end
+
+entity.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function()
+    print("Player looking at entity")
+end
+
+entity.Debug.OnDeath = function()
+    print("Player has died")
+end
+
+--[[
+    NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+
+    entity.Debug.OnUseCrucifix = function()
+        print("Custom crucifixion script here")
+    end
+]]--
+
+---====== Run entity ======---
+
+Spawner.runEntity(entity)
+  	end    
+})
+
+
+ETab:AddButton({
+	Name = "Rush (Kills)",
+	Callback = function()
+      		local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
+
+---====== Create entity ======---
+
+local entity = Spawner.createEntity({
+    CustomName = "Rush",
+    Model = "https://github.com/RegularVynixu/Utilities/blob/main/Doors/Entity%20Spawner/Assets/Entities/Rush.rbxm?raw=true", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
+    Speed = 80,
+    MoveDelay = 7,
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 30,
+    SpawnInFront = false,
+    ShatterLights = true,
+    FlickerLights = {
+        Enabled = true,
+        Duration = 1
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        Delay = 2
+    },
+    CamShake = {
+        Enabled = true,
+        Values = {1.5, 20, 0.1, 1},
+        Range = 100
+    },
+    ResistCrucifix = false,
+    BreakCrucifix = true,
+    DeathMessage = {},
+    IsCuriousLight = false
+})
+
+---====== Debug ======---
+
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned")
+end
+
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned")
+end
+
+entity.Debug.OnEntityStartMoving = function()
+    print("Entity started moving")
+end
+
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity finished rebound")
+end
+
+entity.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function()
+    print("Player looking at entity")
+end
+
+entity.Debug.OnDeath = function()
+    print("Player has died")
+end
+
+--[[
+    NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+
+    entity.Debug.OnUseCrucifix = function()
+        print("Custom crucifixion script here")
+    end
+]]--
+
+---====== Run entity ======---
+
+Spawner.runEntity(entity)
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Ambush",
+	Callback = function()
+      		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+ 
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "Ambush", -- Custom name of your entity
+    Model = "https://github.com/RegularVynixu/Utilities/blob/main/Doors%20Entity%20Spawner/Models/Ambush.rbxm?raw=true", -- Can be GitHub file or rbxassetid
+    Speed = 250, -- Percentage, 100 = default Rush speed
+    DelayTime = 3.5, -- Time before starting cycles (seconds)
+    HeightOffset = -1,
+    CanKill = true,
+    KillRange = 40,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 4,
+        WaitTime = 2,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {{3.5, 20, 0.1, 1,},}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://10110576663", -- Image1 url
+            Image2 = "rbxassetid://10110576663", -- Image2 url
+            Shake = false,
+            Sound1 = {
+                9045199073, -- SoundId
+                { Volume = 2 }, -- Sound properties
+            },
+            Sound2 = {
+                9045199073, -- SoundId
+                { Volume = 2 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(1, 9, 5), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You died to Ambush...", "It is a tricky one.", "Use what you have learned from Rush!"}, -- Custom death message
+})
+ 
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityTable)
+    print("Entity has spawned:", entityTable.Model)
+end
+ 
+entity.Debug.OnEntityDespawned = function(entityTable)
+    print("Entity has despawned:", entityTable.Model)
+end
+ 
+entity.Debug.OnEntityStartMoving = function(entityTable)
+    print("Entity has started moving:", entityTable.Model)
+end
+ 
+entity.Debug.OnEntityFinishedRebound = function(entityTable)
+    print("Entity has finished rebound:", entityTable.Model)
+end
+ 
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", entityTable.Model, "has entered room:", room)
+end
+ 
+entity.Debug.OnLookAtEntity = function(entityTable)
+    print("Player has looked at entity:", entityTable.Model)
+end
+ 
+entity.Debug.OnDeath = function(entityTable)
+    warn("Player has died.")
+end
+------------------------
+ 
+-- Run the created entity
+Creator.runEntity(entity)
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Screech",
+	Callback = function()
+      		require(game.StarterGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.Screech)(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+    workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Glitch",
+	Callback = function()
+      		local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+        require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch).stuff(Data, workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)])
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Halt",
+	Callback = function()
+      		local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+        require(game.ReplicatedStorage.ClientModules.EntityModules.Shade).stuff(Data, workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)])
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Seek Eyes",
+	Callback = function()
+      		local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+        require(game:GetService("ReplicatedStorage").ClientModules.EntityModules.Seek).tease(nil, workspace.CurrentRooms:WaitForChild(game.ReplicatedStorage.GameData.LatestRoom.Value), 14, 1665596753, true)
+  	end    
+})
+
+
+ETab:AddButton({
+	Name = "Void",
+	Callback = function()
+      		local a = require(game.ReplicatedStorage.ClientModules.EntityModules.Void).stuff(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
+workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")])
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Red Room",
+	Callback = function()
+      		local v1 = require(game.ReplicatedStorage.ClientModules.Module_Events)
+        local room = workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")]
+        local seconds = 10
+        v1.tryp(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], seconds)
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Infinite Red Room",
+	Callback = function()
+      		local v1 = require(game.ReplicatedStorage.ClientModules.Module_Events)
+        local room = workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")]
+        local seconds = 10000000
+        v1.tryp(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], seconds)
+  	end    
+})
+
+local RTab = Window:MakeTab({
+	Name = "Rooms Entitys",
+	Icon = "rbxassetid://448334599864",
+	PremiumOnly = false
+})
+
+local RSection = RTab:AddSection({
+	Name = "Entitys"
+})
+
+RTab:AddButton({
+	Name = "A-60",
+	Callback = function()
+      		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "A-60", -- Custom name of your entity
+    Model = "https://github.com/plamen6789/CustomDoorsMonsters/blob/main/A-60.rbxm?raw=true", -- Can be GitHub file or rbxassetid
+    Speed = 200, -- Percentage, 100 = default Rush speed
+    DelayTime = 4, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    KillRange = 30,
+    BreakLights = true,
+    BackwardsMovement = false,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 3,
+        Max = 3,
+        WaitTime = 3,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {20, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        50, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        false, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://11394048190", -- Image1 url
+            Image2 = "rbxassetid://11394048190", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 0, 0), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 1,
+            },
+        },
+    },
+    CustomDialog = {"You died to A-60", "It can Apear at any moment, a loud scream will anounce its presence", "When you hear it spawn you must stay out of its reach as soon as possible", "It knows exactly where you are so hiding in different places will not work.."}, -- Custom death message
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityTable)
+    print("Entity has spawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityDespawned = function(entityTable)
+    print("Entity has despawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityTable)
+    print("Entity has started moving:", entityTable.Model)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityTable)
+    print("Entity has finished rebound:", entityTable.Model)
+end
+
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", entityTable.Model, "has entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function(entityTable)
+    print("Player has looked at entity:", entityTable.Model)
+end
+
+entity.Debug.OnDeath = function(entityTable)
+    warn("Player has died.")
+end
+------------------------
+
+-- Run the created entity
+Creator.runEntity(entity)
+  	end    
+})
+
+RTab:AddButton({
+	Name = "A-60 (Kills)",
+	Callback = function()
+      		local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+-- Create entity
+local entity = Creator.createEntity({
+    CustomName = "A-60", -- Custom name of your entity
+    Model = "https://github.com/plamen6789/CustomDoorsMonsters/blob/main/A-60.rbxm?raw=true", -- Can be GitHub file or rbxassetid
+    Speed = 200, -- Percentage, 100 = default Rush speed
+    DelayTime = 4, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 30,
+    BreakLights = true,
+    BackwardsMovement = false,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 3,
+        Max = 3,
+        WaitTime = 3,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {30, 30, 0.1, 1}, -- Shake values (don't change if you don't know)
+        50, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        false, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://11394048190", -- Image1 url
+            Image2 = "rbxassetid://11394048190", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 0, 0), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 1,
+            },
+        },
+    },
+    CustomDialog = {"You died to A-60", "It can Apear at any moment, a loud scream will anounce its presence", "When you hear it spawn you must stay out of its reach as soon as possible", "It knows exactly where you are so hiding in different places will not work.."}, -- Custom death message
+})
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityTable)
+    print("Entity has spawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityDespawned = function(entityTable)
+    print("Entity has despawned:", entityTable.Model)
+end
+
+entity.Debug.OnEntityStartMoving = function(entityTable)
+    print("Entity has started moving:", entityTable.Model)
+end
+
+entity.Debug.OnEntityFinishedRebound = function(entityTable)
+    print("Entity has finished rebound:", entityTable.Model)
+end
+
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", entityTable.Model, "has entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function(entityTable)
+    print("Player has looked at entity:", entityTable.Model)
+end
+
+entity.Debug.OnDeath = function(entityTable)
+    warn("Player has died.")
+end
+------------------------
+
+-- Run the created entity
+Creator.runEntity(entity)
+  	end    
+})
+
+RTab:AddButton({
+	Name = "A-90",
+	Callback = function()
+      		local a = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules["A90"])(require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game))()  
+  	end    
+})
+
+
+ETab:AddButton({
+	Name = "Timothy",
+	Callback = function()
+      		local a = game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game
+require(a.RemoteListener.Modules.SpiderJumpscare)(require(a), workspace.CurrentRooms["0"].Assets.Dresser.DrawerContainer, 0.2)
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Eyes",
+	Callback = function()
+      		local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Spawner_V2.lua"))()
+local Configuration = {
+    Damage = 10, -- change to "Damage = 10," for eyes, doesnt work on other entities
+    Speed = 160, -- 60 for rush, doesnt work on other entities
+    Time = 3 -- 5 for rush, doesnt work on other entities
+}
+
+EntitySpawner:Spawn("Eyes", Configuration)
+  	end    
+})
+
+ETab:AddButton({
+	Name = "Eyes (No Damage)",
+	Callback = function()
+      		local EntitySpawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/dreadmania/Scripts/main/Spawner_V2.lua"))()
+local Configuration = {
+    Damage = 0, -- change to "Damage = 10," for eyes, doesnt work on other entities
+    Speed = 160, -- 60 for rush, doesnt work on other entities
+    Time = 3 -- 5 for rush, doesnt work on other entities
+}
+
+EntitySpawner:Spawn("Eyes", Configuration)
+  	end    
+})
+
+local ATab = Window:MakeTab({
+	Name = "Achievements",
+	Icon = "rbxassetid://448334523998",
+	PremiumOnly = false
+})
+
+local ASection = ATab:AddSection({
+	Name = "General"
+})
+
+
+ATab:AddButton({
+	Name = "Welcome",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Welcome",
+    Desc = "Enjoy your stay!",
+    Reason = "Join for the first time.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+ATab:AddButton({
+	Name = "Welcome Back",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Welcome Back",
+    Desc = "Are you enjoying your stay?",
+    Reason = "Join another day.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+ATab:AddButton({
+	Name = "Buddy System",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Buddy System",
+    Desc = "Everything's better with friends!",
+    Reason = "Play a run with a friend.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+
+ATab:AddButton({
+	Name = "Back From The Dead",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Back From The Dead",
+    Desc = "I have unfinished business",
+    Reason = "Revive Your Self.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+
+ATab:AddButton({
+	Name = "Join The Group",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Join The Group",
+    Desc = "You're one with the cool kids now!",
+    Reason = "Join the LSPLASH group (and get a free revive)!",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+ATab:AddButton({
+	Name = "Betrayal",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Betrayal",
+    Desc = "Dibs!",
+    Reason = "Steal a hiding spot from someone right before they die.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "In Plain Sight",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "In Plain Sight",
+    Desc = "Quick, behind that conveniently shaped lamp!",
+    Reason = "Hide from an entity by staying out of sight.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+
+
+ATab:AddButton({
+	Name = "Interconnected",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Interconnected",
+    Desc = "Enjoy, future me!",
+    Reason = "Preserve an item in a Rift.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+ATab:AddButton({
+	Name = "Supporting Small Businesses",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Supporting Small Businesses",
+    Desc = "Thank you, come again!",
+    Reason = "Purchase an item from Jeff",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+ATab:AddButton({
+	Name = "Pls Donate",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Pls Donate",
+    Desc = "Now I can go to college!",
+    Reason = "Fill Jeff's tip jar.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+ATab:AddButton({
+	Name = "Herb Of Viridis",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Herb Of Viridis",
+    Desc = "My heart beats stronger...",
+    Reason = "Find and use a green herb.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+local ASection = ATab:AddSection({
+	Name = "Entities"
+})
+
+
+
+
+
+
+
+
+ATab:AddButton({
+	Name = "Out Of My Way",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Out Of My Way",
+    Desc = "I'm walkin' here!",
+    Reason = "Successfully survive Rush.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+
+
+ATab:AddButton({
+	Name = "Look At Me",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Look At Me",
+    Desc = "Last chance to look at me.",
+    Reason = "Survive the Eyes.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+ATab:AddButton({
+	Name = "Two Steps Forward...",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Two Steps Forward...",
+    Desc = "...and one step back.",
+    Reason = "Survive Halt.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "You Can Run",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "You Can Run",
+    Desc = "But you can't um... um... uhh...",
+    Reason = "Successfully run from Seek.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Eviction Notice",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Eviction Notice",
+    Desc = "And stay out!",
+    Reason = "Get kicked out of a hiding spot by Hide.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Meet Jack",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Meet Jack",
+    Desc = "Ooga booga!",
+    Reason = "Encounter Jack.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Meet Timothy",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Meet Timothy",
+    Desc = "Hello there little spider!",
+    Reason = "Encounter Timothy while looting.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Rebound",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Rebound",
+    Desc = "Coming back for seconds!",
+    Reason = "Survive Ambush.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "I See You",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "I See You",
+    Desc = "Peek-a-boo!",
+    Reason = "Dodge Screech's attack.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Error",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Error",
+    Desc = "Well that just happened.",
+    Reason = "Encounter the Glitch.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Wrong Room",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Wrong Room",
+    Desc = "Well this is awkward...",
+    Reason = "Get duped by Dupe.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+ATab:AddButton({
+	Name = "It Stares Back",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "It Stares Back",
+    Desc = "Guys, wait up!!!",
+    Reason = "Encounter the Void.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+local ASection = ATab:AddSection({
+	Name = "Milestones"
+})
+
+
+ 
+
+ATab:AddButton({
+	Name = "One Of Many",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "One Of Many",
+    Desc = "You're just getting started.",
+    Reason = "Encounter your first death.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Ten Of Many",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Ten Of Many",
+    Desc = "You'll get used to it.",
+    Reason = "Encounter your tenth death.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Hundred Of Many",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Hundred Of Many",
+    Desc = "That's more like it!",
+    Reason = "Encounter your hundredth death.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Thousand Of Many",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Thousand Of Many",
+    Desc = "Well that took along time...",
+    Reason = "Encounter your thousandth death.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+local ASection = ATab:AddSection({
+	Name = "Crucifix"
+})
+
+
+ATab:AddButton({
+	Name = "Evil Be Gone",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Evil Be Gone",
+    Desc = "I banish thee!",
+    Reason = "Use a Crucifix successfully.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Stay Out Of My Way",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Stay Out Of My Way",
+    Desc = "You're not that guy, pal.",
+    Reason = "Use a Crucifix against Rush.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Unbound",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Unbound",
+    Desc = "Shut up, thanks.",
+    Reason = "Use a Crucifix against Ambush.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Take A Breather",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Take A Breather",
+    Desc = "Sit down for a moment.",
+    Reason = "Use a Crucifix against Seek.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "All Figured Out",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "All Figured Out",
+    Desc = "I figured that wouldn't work for long...",
+    Reason = "Use a Crucifix against Figure.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "You Can't See Me",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "You Can't See Me",
+    Desc = "That probably wasn't the best use of one of those.",
+    Reason = "Use a Crucifix against the Eyes.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "I Hate You",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "I Hate You",
+    Desc = "Could you not be yourself for five minutes?!",
+    Reason = "Use a Crucifix against Screech.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Two Steps Ahead",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Two Steps Ahead",
+    Desc = "I don't feel like dealing with you.",
+    Reason = "Use a Crucifix against Halt.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Outwitted",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Outwitted",
+    Desc = "The duper becomes... the dupee.",
+    Reason = "Use a Crucifix against Dupe.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Im Not Helping You Anymore",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Im Not Helping You Anymore",
+    Desc = "You did a really bad thing...",
+    Reason = "Use a Crucifix against Guiding Light",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+local ASection = ATab:AddSection({
+	Name = "Floors"
+})
+
+
+
+ATab:AddButton({
+	Name = "Sshh!",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Sshh!",
+    Desc = "Careful not to make a sound!",
+    Reason = "Escape from the Library in the Hotel.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Expert Technician",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Expert Technician",
+    Desc = "I'm the one for the job.",
+    Reason = "Complete the Hotel's breaker puzzle in under a minute without any errors.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Rock Bottom",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Rock Bottom",
+    Desc = "This is just the beginning.",
+    Reason = "Escape The Hotel.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Detour",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Detour",
+    Desc = "I think I'm lost.",
+    Reason = "Enter The Rooms.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+ATab:AddButton({
+	Name = "Back On Track",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Back On Track",
+    Desc = "That sucked... but hey, check out this cool flashlight!",
+    Reason = "Escape The Rooms.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "A-1000",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "A-1000",
+    Desc = "I can't feel my legs.",
+    Reason = "Reach the end of The Rooms.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+local ASection = ATab:AddSection({
+	Name = "Hidden"
+})
+
+
+
+ATab:AddButton({
+	Name = "QA Tester",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "QA Tester",
+    Desc = "You're special! Not in a mean way.",
+    Reason = "Test stuff.",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+ATab:AddButton({
+	Name = "Survival The Jeff The Killer",
+	Callback = function()
+      		-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Survival The Jeff The Killer",
+    Desc = "That was a weird dream.",
+    Reason = "Beat SUPER HARD MODE!! (April Fools 2023)",
+    Image = "Your Image Link With Https://",
+})
+  	end    
+})
+
+
+
+local ITab = Window:MakeTab({
+	Name = "Items",
+	Icon = "rbxassetid://448334523223998",
+	PremiumOnly = false
+})
+
+local ISection = ITab:AddSection({
+	Name = "Items"
+})
+
+ITab:AddButton({
+	Name = "Vitamins",
+	Callback = function()
+      		getgenv().CustomVitamins = {
+    SpeedBoost = 7,
+    EffectDuration = 7.5
+}
+
+local tool = game:GetObjects("rbxassetid://12827538877")[1]
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local anim = Instance.new("Animation")
+anim.Name = "idle"
+anim.AnimationId = "rbxassetid://10479585177"
+local idle = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
+
+local anim = Instance.new("Animation")
+anim.Name = "open"
+anim.AnimationId = "rbxassetid://10482563149"
+local use = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim)
+
+tool.Equipped:Connect(function()
+    idle:Play()
+end)
+
+tool.Unequipped:Connect(function()
+    idle:Stop()
+end)
+
+local using = false
+tool.Activated:Connect(function()
+    if using == false then
+        using = true
+        use:Play()
+        tool.Handle.sound_open:Play()
+        task.wait(0.5)
+        using = false
+        tool:Destroy()
+        use:Stop()
+        local OldSpeedBoost = game.Players.LocalPlayer.Character.Humanoid:GetAttribute("SpeedBoost")
+        game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost", getgenv().CustomVitamins.SpeedBoost + OldSpeedBoost)
+        task.wait(getgenv().CustomVitamins.EffectDuration)
+        game.Players.LocalPlayer.Character.Humanoid:SetAttribute("SpeedBoost", OldSpeedBoost)
+    end
+end)
+  	end    
+})
+
+
+ITab:AddButton({
+	Name = "Shears",
+	Callback = function()
+      		local Tool = game:GetObjects("rbxassetid://12685165702")[1]
+local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local Sound = Instance.new("Sound")
+
+Tool.Parent = game.Players.LocalPlayer.Backpack
+
+Sound.PlaybackSpeed = 1.25
+Sound.SoundId = "rbxassetid://9118823101"
+Sound.Parent = Tool
+
+Tool.Activated:Connect(function()
+    local Use = Tool.Animations.use
+    local UseTrack = Humanoid:LoadAnimation(Use)
+
+    UseTrack:Play()
+    Sound:Play()
+    wait(0.25)
+    Sound:Play()
+    game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model"):Destroy()
+end)
+
+Tool.Equipped:Connect(function()
+    local Idle = Tool.Animations.idle
+    local IdleTrack = Humanoid:LoadAnimation(Idle)
+
+    IdleTrack:Play()
+end)
+Tool.Unequipped:Connect(function()
+    for _,anim in pairs(Humanoid.Animator:GetPlayingAnimationTracks()) do
+        anim:Stop()
+    end
+end)
+  	end    
+})
+
+
+ITab:AddButton({
+	Name = "Crucifix",
+	Callback = function()
+      		_G.Uses = 1
+_G.Range = 30
+_G.OnAnything = false
+_G.Fail = false
+loadstring(game:HttpGet('https://raw.githubusercontent.com/PenguinManiack/Crucifix/main/Crucifix.lua'))()
+  	end    
+})
+
+ITab:AddButton({
+	Name = "Infinite Crucifix",
+	Callback = function()
+      		_G.Uses = 10000000000
+_G.Range = 30
+_G.OnAnything = false
+_G.Fail = false
+loadstring(game:HttpGet('https://raw.githubusercontent.com/PenguinManiack/Crucifix/main/Crucifix.lua'))()
+  	end    
+})
+
+
+ITab:AddButton({
+	Name = "Skeleton Key Crucifix",
+	Callback = function()
+      		local function IsVisible(part)
+    local vec, found=workspace.CurrentCamera:WorldToViewportPoint(part.Position)
+    local onscreen = found and vec.Z > 0
+    local cfg = RaycastParams.new()
+    cfg.FilterType = Enum.RaycastFilterType.Blacklist
+    cfg.FilterDescendantsInstances = {part}
+
+    local cast = workspace:Raycast(part.Position, (game.Players.LocalPlayer.Character.UpperTorso.Position - part.Position), cfg)
+    if onscreen then
+        if cast and (cast and cast.Instance).Parent==game.Players.LocalPlayer.Character then
+            return true
+        end
+    end
+end
+
+local Equipped = false
+
+-- Edit this --
+getgenv().spawnKey = Enum.KeyCode.F4
+---------------
+
+-- Services
+
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+
+-- Variables
+
+local Plr = Players.LocalPlayer
+local Char = Plr.Character or Plr.CharacterAdded:Wait()
+local Hum = Char:WaitForChild("Humanoid")
+local Root = Char:WaitForChild("HumanoidRootPart")
+local RightArm = Char:WaitForChild("RightUpperArm")
+local LeftArm = Char:WaitForChild("LeftUpperArm")
+
+local RightC1 = RightArm.RightShoulder.C1
+local LeftC1 = LeftArm.LeftShoulder.C1
+
+local SelfModules = {
+    Functions = loadstring(
+        game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua")
+    )(),
+    CustomShop = loadstring(
+        game:HttpGet(
+            "https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"
+        )
+    )(),
+}
+
+local ModuleScripts = {
+    MainGame = require(Plr.PlayerGui.MainUI.Initiator.Main_Game),
+    SeekIntro = require(Plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Cutscenes.SeekIntro),
+}
+
+-- Functions
+
+local function setupCrucifix(tool)
+    tool.Equipped:Connect(function()
+        Equipped = true
+        Char:SetAttribute("Hiding", true)
+        for _, v in next, Hum:GetPlayingAnimationTracks() do
+            v:Stop()
+        end
+
+        RightArm.Name = "R_Arm"
+        LeftArm.Name = "L_Arm"
+
+        RightArm.RightShoulder.C1 = RightC1 * CFrame.Angles(math.rad(-90), math.rad(-15), 0)
+        LeftArm.LeftShoulder.C1 = LeftC1
+            * CFrame.new(-0.2, -0.3, -0.5)
+            * CFrame.Angles(math.rad(-125), math.rad(25), math.rad(25))
+    end)
+
+    tool.Unequipped:Connect(function()
+        Equipped = false
+        Char:SetAttribute("Hiding", nil)
+        RightArm.Name = "RightUpperArm"
+        LeftArm.Name = "LeftUpperArm"
+
+        RightArm.RightShoulder.C1 = RightC1
+        LeftArm.LeftShoulder.C1 = LeftC1
+    end)
+end
+
+-- Scripts
+
+local CrucifixTool = game:GetObjects("rbxassetid://11697889137")[1]
+CrucifixTool.Name = "Crucifix"
+CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
+
+-- game.UserInputService.InputBegan:Connect(function(input, proc)
+--     if proc then return end
+
+--     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
+--         local CrucifixTool = game:GetObjects("rbxassetid://11746137630")[1]
+--         CrucifixTool.Name = "Crucifix"
+--         CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
+--     end
+-- end)
+-- Input handler
+
+setupCrucifix(CrucifixTool)
+
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+
+-- Variables
+
+local Plr = Players.LocalPlayer
+local Char = Plr.Character or Plr.CharacterAdded:Wait()
+local Hum = Char:WaitForChild("Humanoid")
+local Root = Char:WaitForChild("HumanoidRootPart")
+
+local dupeCrucifix = Instance.new("BindableEvent")
+local function func(ins)
+    wait(.01) -- Wait for the attribute
+    if ins:GetAttribute("IsCustomEntity")==true and ins:GetAttribute("ClonedByCrucifix")~=true then
+        local Chains = game:GetObjects("rbxassetid://12249874762")[1]
+        Chains.Parent = workspace
+        local chained = true
+        local posTime = false
+        local rotTime = false
+        local tweenTime = false
+        local intFound = true
+
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if Equipped then
+                if ins.Parent~=nil and ins.PrimaryPart and IsVisible(ins.PrimaryPart) and (Root.Position-ins.PrimaryPart.Position).magnitude <= 25 then
+                    local c=ins:Clone()
+                    c:SetAttribute("ClonedByCrucifix", true)
+                    c.RushNew.Anchored=true
+                    c.Parent=ins.Parent
+                    ins:Destroy()
+                    dupeCrucifix:Fire(6,c.RushNew)
+
+
+                    
+                    -- Chains.PrimaryPart.Orientation = Chains.PrimaryPart.Orientation + Vector3.new(0, 3, 0)
+
+                    local EntityRoot = c:FindFirstChild("RushNew")
+
+                    if EntityRoot then
+
+
+
+                        local Fake_FaceAttach = Instance.new("Attachment")
+                        Fake_FaceAttach.Parent = EntityRoot
+                        
+
+                        for i, beam in pairs(Chains:GetDescendants()) do
+                            if beam:IsA("BasePart") then
+                                beam.CanCollide = false
+                            end
+                            if beam.Name == "Beam" then
+                                beam.Attachment1 = Fake_FaceAttach
+                            end
+                        end
+                        
+                        if not posTime then
+                            Chains:SetPrimaryPartCFrame(
+                                EntityRoot.CFrame * CFrame.new(0, -3.5, 0) * CFrame.Angles(math.rad(90), 0, 0)
+                            )
+                            posTime = true
+                        end
+
+                        task.wait(1.35)
+                        if not tweenTime then
+
+                            task.spawn(function()
+                                while task.wait() do
+                                    if Chains:FindFirstChild('Base') then
+                                        Chains.Base.CFrame = Chains.Base.CFrame * CFrame.Angles(0,0 , math.rad(0.5))
+                                    end
+                                end
+                            end)
+
+                            task.spawn(function()
+                                while task.wait() do
+                                    for i, beam in pairs(Chains:GetDescendants()) do
+                                        if beam.Name == "Beam" then
+                                            beam.TextureLength = beam.TextureLength+0.035
+                                        end
+                                    end
+                                end
+                            end)
+
+
+                            game.TweenService
+                                :Create(
+                                    EntityRoot,
+                                    TweenInfo.new(6),
+                                    { CFrame = EntityRoot.CFrame * CFrame.new(0, 50, 0) }
+                                )
+                                :Play()
+                            
+
+                            tweenTime = true
+                            task.wait(1.5)
+                            intFound = false
+                            game:GetService("Debris"):AddItem(c, 0)
+                            game:GetService("Debris"):AddItem(Chains, 0)
+                        end
+                    end
+                end
+            end
+        end)
+    elseif ins.Name=="Lookman" then
+        local c=ins
+        task.spawn(function()
+            repeat task.wait() until IsVisible(c.Core) and Equipped and c.Core.Attachment.Eyes.Enabled==true
+            local pos=c.Core.Position
+            dupeCrucifix:Fire(18.364, c.Core)
+            task.spawn(function()
+                c:SetAttribute("Killing", true)
+                ModuleScripts.MainGame.camShaker:ShakeOnce(10, 10, 5, 0.15)
+                wait(5)
+                c.Core.Initiate:Stop()
+                for i=1,3 do
+                    c.Core.Repent:Play()  
+                    c.Core.Attachment.Angry.Enabled=true
+                    ModuleScripts.MainGame.camShaker:ShakeOnce(8, 8, 1.3, 0.15)
+                    delay(c.Core.Repent.TimeLength, function() c.Core.Attachment.Angry.Enabled=false end)
+                    wait(4)
+                end
+                c.Core.Scream:Play();
+                ModuleScripts.MainGame.camShaker:ShakeOnce(8, 8, c.Core.Scream.TimeLength, 0.15);
+                (c.Core:FindFirstChild"whisper" or c.Core:FindFirstChild"Ambience"):Stop()
+                for _, l in pairs(c:GetDescendants()) do
+                    if l:IsA("PointLight") then
+                        l.Enabled=false
+                    end
+                end
+                game:GetService("TweenService"):Create(c.Core, TweenInfo.new(c.Core.Scream.TimeLength, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+                    CFrame=CFrame.new(c.Core.CFrame.X, c.Core.CFrame.Y-12, c.Core.CFrame.Z)
+                }):Play()
+            end)
+            local col=game.Players.LocalPlayer.Character.Collision
+
+            local function CFrameToOrientation(cf)
+                local x, y, z = cf:ToOrientation()
+                return Vector3.new(math.deg(x), math.deg(y), math.deg(z))
+            end
+            
+            while c.Parent~=nil and c.Core.Attachment.Eyes.Enabled==true do
+                -- who's the boss now huh?
+                col.Orientation = CFrameToOrientation(CFrame.lookAt(col.Position, pos)*CFrame.Angles(0, math.pi, 0))
+                task.wait()
+            end
+        end)
+    elseif ins.Name=="Shade" and ins.Parent==workspace.CurrentCamera and ins:GetAttribute("ClonedByCrucifix")==nil then
+        task.spawn(function()
+            repeat task.wait() until IsVisible(ins) and (Root.Position-ins.Position).Magnitude <= 12.5 and Equipped
+
+            local clone = ins:Clone()
+
+            clone.CFrame = ins.CFrame
+            clone.Parent = ins.Parent
+            clone.Anchored = true
+
+            ins:Remove()
+
+            dupeCrucifix:Fire(13, ins)
+            ModuleScripts.MainGame.camShaker:ShakeOnce(40, 10, 5, 0.15)
+
+
+
+            for _, thing in pairs(clone:GetDescendants()) do
+                if thing:IsA("SpotLight") then
+                    game:GetService("TweenService"):Create(thing, TweenInfo.new(5), {
+                        Brightness=thing.Brightness*5
+                    }):Play()
+                elseif thing:IsA("Sound") and thing.Name~="Burst" then
+                    game:GetService("TweenService"):Create(thing, TweenInfo.new(5), {
+                        Volume=0
+                    }):Play()
+                elseif thing:IsA("TouchTransmitter") then thing:Destroy() end
+            end
+
+            for _, pc in pairs(clone:GetDescendants()) do
+                if pc:IsA("ParticleEmitter") then
+                        pc.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.48, Color3.fromRGB(182, 0, 3)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 4))}
+                end
+            end
+
+            local Original_color = {}
+
+            local light
+            light = game.Lighting["Ambience_Shade"]
+            game:GetService("TweenService"):Create(light, TweenInfo.new(1), {
+
+
+            }):Play()
+
+            wait(5)
+
+            clone.Burst.PlaybackSpeed=0.5
+            clone.Burst:Stop()
+            clone.Burst:Play()
+            light.TintColor = Color3.fromRGB(215,253,255)
+            game:GetService("TweenService"):Create(clone, TweenInfo.new(6), {
+                CFrame=CFrame.new(clone.CFrame.X, clone.CFrame.Y-12, clone.CFrame.Z)
+            }):Play()
+            wait(8.2)
+
+            game:GetService("Debris"):AddItem(clone, 0)
+            game.ReplicatedStorage.Bricks.ShadeResult:FireServer()
+        end)
+    end
+end
+
+workspace.ChildAdded:Connect(func)
+workspace.CurrentCamera.ChildAdded:Connect(func)
+for _, thing in pairs(workspace:GetChildren()) do
+    func(thing)
+end
+dupeCrucifix.Event:Connect(function(time, entityRoot)
+    local Cross = game:GetObjects("rbxassetid://11840790614")[1]
+    Cross.Parent = workspace
+
+    local fakeCross = Cross.Handle
+
+    -- fakeCross:FindFirstChild("EffectLight").Enabled = true
+
+    ModuleScripts.MainGame.camShaker:ShakeOnce(35, 25, 0.15, 0.15)
+    -- you tell me i didnt make?
+    fakeCross.CFrame = CFrame.lookAt(CrucifixTool.Handle.Position, entityRoot.Position)
+    
+    -- hl.Parent = model
+    -- hl.FillTransparency = 1
+    -- hl.OutlineColor = Color3.fromRGB(75, 177, 255)
+    fakeCross.Anchored = true
+
+    CrucifixTool:Destroy()
+
+    -- for i, v in pairs(fakeCross:GetChildren()) do
+    --     if v.Name == "E" and v:IsA("BasePart") then
+    --         v.Transparency = 0
+    --         v.CanCollide = false
+    --     end
+    --     if v:IsA("Motor6D") then
+    --         v.Name = "Motor6D"
+    --     end
+    -- end
+
+    task.wait(time)
+    fakeCross.Anchored = false
+    fakeCross.CanCollide = true
+    task.wait(0.5)
+    Cross:Remove()
+end)
+
+-- credits
+firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Models made by totally alex, BasicallyAlex#8579")
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+-- alex W
+
+-- alex W
+-- alex W
+-- alex W
+
+-- alex W
+  	end    
+})
+
+
+
+ITab:AddButton({
+	Name = "Tablet",
+	Callback = function()
+      		 _G.OnShop = true
+ 
+loadstring(game:HttpGet('https://raw.githubusercontent.com/DeividComSono/Scripts/main/Scanner.lua'))()
+  	end    
+})
+
+
+ITab:AddButton({
+	Name = "Guiding Light Candle",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAccelerator/CometV4/main/Items/Candle.lua",true))()
+  	end    
+})
+
+
+local LTab = Window:MakeTab({
+	Name = "Anticheat Bypass",
+	Icon = "rbxassetid://44833232345998",
+	PremiumOnly = false
+})
+
+
+local LSection = LTab:AddSection({
+	Name = "Bypass"
+})
+
+
+LTab:AddButton({
+	Name = "Bypass AntiCheat (Will Close This Window)",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/weszek/Doors/main/Doors%20by'))()
+  	end    
+})
+
+
+local PTab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://44833452321",
+	PremiumOnly = false
+})
+
+local PSection = PTab:AddSection({
+	Name = "Player"
+})
+
+PTab:AddButton({
+	Name = "Speed Walk",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 21
+  	end    
+})
+
+
+PTab:AddButton({
+	Name = "FullBright",
+	Callback = function()
+      		pcall(function()
+    local lighting = game:GetService("Lighting");
+    lighting.Ambient = Color3.fromRGB(255, 255, 255);
+    lighting.Brightness = 1;
+    lighting.FogEnd = 1e10;
+    for i, v in pairs(lighting:GetDescendants()) do
+        if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
+            v.Enabled = false;
+        end;
+    end;
+    lighting.Changed:Connect(function()
+        lighting.Ambient = Color3.fromRGB(255, 255, 255);
+        lighting.Brightness = 1;
+        lighting.FogEnd = 1e10;
+    end);
+    spawn(function()
+        local character = game:GetService("Players").LocalPlayer.Character;
+        while wait() do
+            repeat wait() until character ~= nil;
+            if not character.HumanoidRootPart:FindFirstChildWhichIsA("PointLight") then
+                local headlight = Instance.new("PointLight", character.HumanoidRootPart);
+                headlight.Brightness = 1;
+                headlight.Range = 60;
+            end;
+        end;
+    end);
+end)
+  	end    
+})
+
+
+PTab:AddButton({
+	Name = "Kill",
+	Callback = function()
+      	game.Players.LocalPlayer.Character.Humanoid.Health = 0	
+  	end    
+})
+
+
+PTab:AddButton({
+	Name = "Revive",
+	Callback = function()
+      	 game.ReplicatedStorage.Bricks.Revive:FireServer()
+  	end    
+})
+
+
+PTab:AddButton({
+	Name = "Noclip 30%",
+	Callback = function()
+      	 -- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Drag = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+--Properties:
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.Position = UDim2.new(0.275453836, 0, 0.186732173, 0)
+Frame.Size = UDim2.new(0, 379, 0, 373)
+ 
+Drag.Name = "Drag"
+Drag.Parent = Frame
+Drag.BackgroundColor3 = Color3.new(1, 1, 1)
+Drag.BorderColor3 = Color3.new(0.917647, 0.917647, 0.917647)
+Drag.Size = UDim2.new(0, 379, 0, 27)
+Drag.Text = "Drag"
+Drag.TextColor3 = Color3.new(0, 0, 0)
+ 
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.Position = UDim2.new(0.261265785, 0, 0.352023244, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Noclip R15"
+TextButton.TextColor3 = Color3.new(0, 0, 0)
+TextButton.TextSize = 14
+TextButton.MouseButton1Down:connect(function()
+nam = game.Players.LocalPlayer.Name
+ 
+game:GetService('RunService').Stepped:connect(function()
+for a, b in pairs(game.Workspace:GetChildren()) do
+if b.Name == nam then
+for i, v in pairs(game.Workspace[nam]:GetChildren()) do
+if v:IsA("BasePart") then
+v.CanCollide = false
+ 
+end
+end
+end
+end
+end)
+ 
+Workspace[nam].Head.Changed:connect(function()
+for a, b in pairs(game.Workspace:GetChildren()) do
+if b.Name == nam then
+for i, v in pairs(game.Workspace[nam]:GetChildren()) do
+if v:IsA("BasePart") then
+v.CanCollide = false
+ 
+end
+end
+end
+end
+end)
+end)
+ 
+TextButton_2.Parent = Frame
+TextButton_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_2.Position = UDim2.new(0.261265785, 0, 0.615844727, 0)
+TextButton_2.Size = UDim2.new(0, 200, 0, 50)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "Noclip R6"
+TextButton_2.TextColor3 = Color3.new(0, 0, 0)
+TextButton_2.TextSize = 14
+TextButton_2.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
+game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+while true do
+	game:GetService("RunService").Stepped:wait()
+	game.Players.LocalPlayer.Character.Head.CanCollide = false
+	game.Players.LocalPlayer.Character.Torso.CanCollide = false
+end
+end)
+ 
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.Position = UDim2.new(0.104106054, 0, 0.111652002, 0)
+TextLabel.Size = UDim2.new(0, 299, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "hack noclip (work all game)"
+TextLabel.TextColor3 = Color3.new(0, 0, 0)
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
+-- Scripts:
+function SCRIPT_GBXM85_FAKESCRIPT() -- Drag.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Drag
+	wanttobemoved=script.Parent.Parent
+	X=wanttobemoved.Position.X.Offset
+	Y=wanttobemoved.Position.Y.Offset
+	XS=wanttobemoved.Position.X.Scale
+	YS=wanttobemoved.Position.Y.Scale
+	function down(posX,posY)--the positions of the mouse
+		drag=true--activate the drag function
+		X=wanttobemoved.Position.X.Offset--redefines the value "X"
+		Y=wanttobemoved.Position.Y.Offset--redefines the value "Y"
+		XS=wanttobemoved.Position.X.Scale
+		YS=wanttobemoved.Position.Y.Scale
+		DposX=posX-X--the mouse's X position offset by the frame's X position.
+		DposY=posY-Y--the mouse's Y position offset by the frame's Y position.
+		print(""..DposX..","..DposY.."")--remembers the values DposX and DposY in the output toolbar.
+	end
+	function up()
+		drag=false--deactivate the drag
+	end
+	function move(posX,posY)--again, the positions of the mouse
+		if drag then--if held down then
+			wanttobemoved.Position=UDim2.new(XS,posX - DposX,YS,posY - DposY)
+		end
+	end
+	script.Parent.MouseButton1Down:connect(down)
+	script.Parent.MouseButton1Up:connect(up)
+	script.Parent.MouseLeave:connect(up)
+	script.Parent.MouseMoved:connect(move)
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_GBXM85_FAKESCRIPT))
+  	end    
+})
+
+
+
+local KTab = Window:MakeTab({
+	Name = "Keybinds",
+	Icon = "rbxassetid://4483323145998",
+	PremiumOnly = false
+})
+
+local KSection = KTab:AddSection({
+	Name = "Keybinds"
+})
+
+KTab:AddLabel("Coming Soon")
+OrionLib:Init()
